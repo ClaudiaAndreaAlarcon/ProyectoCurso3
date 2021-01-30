@@ -1,0 +1,29 @@
+---
+title: "ReadMe"
+author: "Claudia Alarcon"
+date: "30 de enero de 2021"
+output: word_document
+---
+
+Tarea calificada por pares: 
+Proyecto del curso de obtención y limpieza de datos
+Este repositorio es un envío de Claudia A para el proyecto del curso Obtención y limpieza de datos. 
+Tiene las instrucciones sobre cómo ejecutar análisis en el conjunto de datos de reconocimiento de actividad humana.
+
+Dataset
+Human Activity Recognition Using Smartphones
+
+Files
+1)CodeBook.Rmd 
+Es un libro de códigos que describe las variables, los datos y cualquier transformación o trabajo que se realizó para limpiar los datos.
+
+2)run_analysis.R 
+Es un scrip que realiza la preparación de datos y luego sigue los  pasos requeridos como se describe en la definición del proyecto del curso:
+Fusiona los conjuntos de entrenamiento y prueba para crear un conjunto de datos.
+Extrae solo las medidas de la desviación estándar y media de cada medida.
+Utiliza nombres de actividades descriptivos para nombrar las actividades en el conjunto de datos
+Etiqueta adecuadamente el conjunto de datos con nombres de variables descriptivos.
+A partir del conjunto de datos del paso 4, crea un segundo conjunto de datos ordenado e independiente con el promedio de cada variable para cada actividad y cada tema.
+
+3)ReadMe.Rmd 
+Este repositorio explica cómo funcionan todos los scripts y cómo están conectados.

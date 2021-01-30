@@ -1,0 +1,60 @@
+---
+title: "BooKCode"
+author: "Claudia Alarcon"
+date: "30 de enero de 2021"
+output: word_document
+---
+El script run_analysis.R  prepara los datos y luego sigue los pasos requeridos como se describe en la definición del proyecto del curso.
+
+1) Descargar el conjunto de datos
+Conjunto de datos descargado y extraído en la carpeta denominada UCI HAR Dataset
+
+2) Asignar cada dato a variables
+features <- features.txt: 561 filas, 2 columnas
+Las características seleccionadas para esta base de datos provienen de las señales sin procesar de 3 ejes del acelerómetro y giroscopio tAcc-XYZ y tGyro-XYZ.
+
+activities <- activity_labels.txt: 6 filas, 2 columnas
+Lista de actividades realizadas cuando se tomaron las medidas correspondientes y sus códigos (etiquetas)
+
+subject_test <- test / subject_test.txt: 2947 filas, 1 columna
+contiene datos de prueba de 9/30 sujetos de prueba voluntarios que se están observando
+
+x_test <- test / X_test.txt: 2947 filas, 561 columnas
+contiene datos de prueba de características registradas
+
+y_test <- test / y_test.txt: 2947 filas, 1 columnas
+contiene datos de prueba de etiquetas de código de actividades
+
+subject_train <- test / subject_train.txt: 7352 filas, 1 columna
+contiene datos de entrenamiento de 21/30 sujetos voluntarios observados
+
+x_train <- test / X_train.txt: 7352 filas, 561 columnas
+contiene datos de entrenamiento de características registradas
+
+y_train <- test / y_train.txt: 7352 filas, 1 columnas
+contiene datos de entrenamiento de etiquetas de código de actividades
+
+3) Fusionar los conjuntos de entrenamiento y prueba para crear un conjunto de datos
+X (10299 filas, 561 columnas) se crea fusionando x_train y x_test usando la función rbind ()
+Y (10299 filas, 1 columna) se crea fusionando y_train y y_test usando la función rbind ()
+Subject (10299 filas, 1 columna) se crea fusionando subject_train y subject_test usando la función rbind ()
+Merged_Data (10299 filas, 563 columnas) se crea fusionando Asunto, Y y X usando la función cbind ()
+
+4) Extraer solo las medidas de la desviación media y estándar de cada medida
+TidyData (10299 filas, 88 columnas) se crea subconjuntando Merged_Data, seleccionando solo columnas: asunto, código y las medidas en la desviación media y estándar (std) para cada medida
+
+5) Utilizar nombres de actividades descriptivos para nombrar las actividades en el conjunto de datos
+Números completos en la columna de código de TidyData reemplazados con la actividad correspondiente tomada de la segunda columna de la variable de actividades
+
+6) Etiquetar apropiadamente el conjunto de datos con nombres de variables descriptivos
+code en TidyData renombrada a activities
+Acc columna reemplazados por Accelerometer
+Gyros columna reemplazados por Gyroscope
+BodyBody  columna reemplazado por Body
+Mag columna reemplazada por Magnitude
+Todos comienzan con el carácter f en el nombre de la columna reemplazado por Frequency
+Todos comienzan con el carácter t en el nombre de la columna reemplazado por Time
+
+7) A partir del conjunto de datos del paso 4, crea un segundo conjunto de datos ordenado e independiente con el promedio de cada variable para cada actividad y cada tema.
+FinalData (180 filas, 88 columnas) se crea resumiendo TidyData tomando las medias de cada variable para cada actividad y cada tema, después de agruparlos por tema y actividad.
+Exportar FinalData al archivo FinalData.txt.
